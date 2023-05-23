@@ -10,21 +10,21 @@ class Search extends React.Component {
     this.setState({
       pesquisa: e.target.value,
     }, () => {
-  this.MudarBotao()
+      this.MudarBotao();
     });
   };
 
   MudarBotao = () => {
-    const {pesquisa} = this.state
-    if(pesquisa.length >= 2){
-    this.setState({
-      botao: false,
-    });
-  } else {
-    this.setState({
-      botao : true
-    })
-  }
+    const { pesquisa } = this.state;
+    if (pesquisa.length >= 2) {
+      this.setState({
+        botao: false,
+      });
+    } else {
+      this.setState({
+        botao: true,
+      });
+    }
   };
 
   render() {
@@ -33,7 +33,13 @@ class Search extends React.Component {
       <div data-testid="page-search">
         <form>
           <label htmlFor="pesquisa">Pesquisar Artista</label>
-          <input type="text" id="pesquisa" data-testid="search-artist-input" value={ pesquisa } onChange={ this.InputPesquisa } />
+          <input
+            type="text"
+            id="pesquisa"
+            data-testid="search-artist-input"
+            value={ pesquisa }
+            onChange={ this.InputPesquisa }
+          />
           <button disabled={ botao } data-testid="search-artist-button">Pesquisar</button>
         </form>
       </div>
