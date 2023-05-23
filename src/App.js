@@ -1,8 +1,16 @@
 import React from 'react';
+import Paginas from './pages/Paginas';
+import Header from './components/Header';
 
 class App extends React.Component {
   render() {
-    return (<p>TrybeTunes</p>);
+    return (
+      <>
+        <Header />
+        <p>TrybeTunes</p>
+        <Paginas />
+      </>
+    );
   }
 }
 
