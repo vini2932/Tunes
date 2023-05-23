@@ -12,7 +12,7 @@ import NotFound from '../components/NotFound';
 class Paginas extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route path="/search" component={ Search } />
@@ -22,7 +22,7 @@ class Paginas extends React.Component {
           <Route path="/favorites" component={ Favorites } />
           <Route path="*" component={ NotFound } />
         </Switch>
-      </BrowserRouter>
+    
 
     );
   }
