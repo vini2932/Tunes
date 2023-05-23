@@ -1,5 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import { Switch, Route } from 'react-router-dom/';
 import React from 'react';
 import Login from '../components/Login';
 import Search from '../components/Search';
@@ -12,17 +11,16 @@ import NotFound from '../components/NotFound';
 class Paginas extends React.Component {
   render() {
     return (
-      
-        <Switch>
-          <Route exact path="/" component={ Login } />
-          <Route path="/search" component={ Search } />
-          <Route path="/album/:id" component={ Album } />
-          <Route path="/profile/edit" component={ ProfileEdit } />
-          <Route path="/profile" component={ Profile } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="*" component={ NotFound } />
-        </Switch>
-    
+
+      <Switch>
+        <Route exact path="/" component={ Login } />
+        <Route path="/search" component={ Search } />
+        <Route path="/album/:id" component={ Album } />
+        <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route path="/profile" component={ Profile } />
+        <Route path="/favorites" component={ Favorites } />
+        <Route path="*" component={ NotFound } />
+      </Switch>
 
     );
   }
