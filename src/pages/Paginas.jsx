@@ -15,12 +15,12 @@ class Paginas extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={ Login } />
-          <Route path="/search"><Search /></Route>
-          <Route path="/album/:id"><Album /></Route>
-          <Route path="/profile/edit"><ProfileEdit /></Route>
+          <Route path="/search" component={ Search } />
+          <Route path="/album/:id" component={ Album } />
+          <Route path="/profile/edit" component={ ProfileEdit } />
           <Route path="/profile" component={ Profile } />
-          <Route path="/favorites"><Favorites /></Route>
-          <Route path="*"><NotFound /></Route>
+          <Route path="/favorites" component={ Favorites } />
+          <Route path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>
 

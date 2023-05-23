@@ -1,6 +1,8 @@
 import React from 'react';
-import { getUser } from '../services/userAPI';
+import { Link, BrowserRouter } from 'react-router-dom';
+
 import Carregando from './Carregando';
+import { getUser } from '../services/userAPI';
 
 class Header extends React.Component {
   state = {
@@ -30,7 +32,12 @@ class Header extends React.Component {
     const { nome, carregar } = this.state;
     return (
       <header data-testid="header-component">
-
+        <BrowserRouter>
+          <Link to="/favorites" data-testid="link-to-favorites">Musica Favorita</Link>
+          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+          <Link to="/album">Album</Link>
+          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        </BrowserRouter>
         {carregar === true
           ? <Carregando /> : <p data-testid="header-user-name">{nome}</p>}
       </header>
