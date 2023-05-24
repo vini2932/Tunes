@@ -1,13 +1,67 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import getMusics from '../services/musicsAPI';
 
 class Album extends React.Component {
+  state = {
+    bandanome: '',
+    albumnome: '',
+    albumcompleto: [],
+  };
+
+  componentDidMount() {
+    this.PegarBanda();
+  }
+
+  PegarBanda = async () => {
+    const { history } = this.props;
+    const id = history.location.pathname.split('/')[2];
+    console.log(id);
+    const banda = await getMusics(id);
+    console.log('Essa é a bandsa ', banda);
+    this.setState({
+      albumcompleto: [...banda],
+      bandanome: banda[0].artistName,
+      albumnome: banda[0].collectionName,
+    });
+  };
+
   render() {
+    const { bandanome, albumnome, albumcompleto } = this.state;
+    // { console.log('Esse é o album completo ', albumcompleto); }
     return (
       <>
+
         <div data-testid="page-album" />
         <h1>Pagina de albuns</h1>
+        <p data-testid="artist-name">{bandanome}</p>
+        <p data-testid="album-name">{albumnome}</p>
+        <h1>Albuns</h1>
+        {albumcompleto.slice(1).map((al) => (
+          <div key={ al.trackName }>
+            <p>{al.trackName }</p>
+            <audio data-testid="audio-component" src={ al.previewUrl } controls>
+              <track kind="captions" />
+              O seu navegador não suporta o elemento
+              {' '}
+              {' '}
+              <code>audio</code>
+              .
+            </audio>
+          </div>
+        ))}
       </>
     );
   }
 }
+
+Album.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+    replace: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired,
+  }) }.isRequired;
 export default Album;

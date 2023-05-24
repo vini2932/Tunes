@@ -87,6 +87,5 @@ Login.propTypes = {
     push: PropTypes.func.isRequired,
     replace: PropTypes.func.isRequired,
     goBack: PropTypes.func.isRequired,
-    // Outras propriedades e métodos do objeto history
   }).isRequired,
 };
