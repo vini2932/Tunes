@@ -75,12 +75,12 @@ class Album extends React.Component {
             <p>{al.trackName }</p>
             <label
               htmlFor="favorits"
-              data-testid={ `checkbox-music-${al.trackId}` }
+              
             >
               Favorita
 
             </label>
-            <input type="checkbox" id="favorits" onChange={ this.Favoritar } />
+            <input type="checkbox" id="favorits" onChange={ this.Favoritar } data-testid={ `checkbox-music-${al.trackId}` }/>
             <audio data-testid="audio-component" src={ al.previewUrl } controls>
               <track kind="captions" />
               O seu navegador não suporta o elemento
